@@ -118,7 +118,7 @@ public class AnswerJavaActivity extends AppCompatActivity {
                     activeCall.disconnect();
                     initiatedDisconnect = true;
                     // finish();
-                    AnswerJavaActivity.this.finish();
+                    AnswerJavaActivity.this.finishAffinity();
                     break;
                 case Constants.ACTION_TOGGLE_MUTE:
                     boolean muted = activeCall.isMuted();
@@ -195,7 +195,7 @@ public class AnswerJavaActivity extends AppCompatActivity {
         Log.d(TAG, "Clicked accept startService");
         startService(acceptIntent);
         if (TwilioVoicePlugin.hasStarted) {
-            AnswerJavaActivity.this.finish();
+            AnswerJavaActivity.this.finishAffinity();
             // finish();
         } else {
             Log.d(TAG, "Answering call");
@@ -222,7 +222,7 @@ public class AnswerJavaActivity extends AppCompatActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.setAction(Constants.ACTION_CANCEL_CALL);
 
-            AnswerJavaActivity.this.finish();
+            AnswerJavaActivity.this.finishAffinity();
             this.startActivity(intent);
             // finish();
             
