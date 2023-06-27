@@ -194,7 +194,8 @@ public class AnswerJavaActivity extends AppCompatActivity {
         Log.d(TAG, "Clicked accept startService");
         startService(acceptIntent);
         if (TwilioVoicePlugin.hasStarted) {
-            finish();
+            AnswerJavaActivity.this.finish();
+            // finish();
         } else {
             Log.d(TAG, "Answering call");
             activeCallInvite.accept(this, callListener);
@@ -221,7 +222,8 @@ public class AnswerJavaActivity extends AppCompatActivity {
             intent.setAction(Constants.ACTION_CANCEL_CALL);
 
             this.startActivity(intent);
-            finish();
+            // finish();
+            AnswerJavaActivity.this.finish();
         }
 
     }
