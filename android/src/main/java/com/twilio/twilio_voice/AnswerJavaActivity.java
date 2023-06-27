@@ -117,7 +117,8 @@ public class AnswerJavaActivity extends AppCompatActivity {
                     Log.d(TAG, "ending call" + activeCall != null ? "TRue" : "False");
                     activeCall.disconnect();
                     initiatedDisconnect = true;
-                    finish();
+                    // finish();
+                    AnswerJavaActivity.this.finish();
                     break;
                 case Constants.ACTION_TOGGLE_MUTE:
                     boolean muted = activeCall.isMuted();
@@ -221,9 +222,10 @@ public class AnswerJavaActivity extends AppCompatActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.setAction(Constants.ACTION_CANCEL_CALL);
 
+            AnswerJavaActivity.this.finish();
             this.startActivity(intent);
             // finish();
-            AnswerJavaActivity.this.finish();
+            
         }
 
     }
